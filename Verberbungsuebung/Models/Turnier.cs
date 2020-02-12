@@ -21,7 +21,6 @@ namespace Verberbungsuebung
         private Turnierstatus _status;
         #endregion
 
-
         #region Accessoren/Modifier
         public int ID { get => _ID; set => _ID = value; }
         public Turnierstatus Status { get => _status; set => _status = value; }
@@ -45,7 +44,7 @@ namespace Verberbungsuebung
             Status = status;
         }
         //Kopierkonstruktor
-        public Turnier(Turnier t)
+        public Turnier(Turnier t) : base(t.Status, t.ID)
         {
             this.ID = t.ID;
             this.Status = t.Status;

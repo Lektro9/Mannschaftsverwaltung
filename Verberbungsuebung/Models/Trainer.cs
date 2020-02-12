@@ -23,7 +23,15 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
-
+        public Trainer() : base()
+        {
+            Erfahrung = -1;
+        }
+        //Spezialkonstruktor
+        public Trainer(int erfahrung) : base()
+        {
+            Erfahrung = erfahrung;
+        }
         #endregion
 
         #region Worker

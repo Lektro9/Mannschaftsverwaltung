@@ -46,7 +46,7 @@ namespace Verberbungsuebung
             this.Spieltag = spieltag;
         }
         //Kopierkonstruktor
-        public Bundesliga(Bundesliga bl) : base(bl)
+        public Bundesliga(Bundesliga bl, Turnierstatus status) : base(bl)
         {
             this.Sportart = bl.Sportart;
         }

@@ -23,7 +23,20 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
+        public HandballSpieler() : base()
+        {
+            Position = null;
+        }
+        //Spezialkonstruktor
+        public HandballSpieler(string position) : base()
+        {
+            Position = position;
+        }
 
+        public HandballSpieler(string name, int alter, int erzieltePkte, string position) : base(name, alter, erzieltePkte)
+        {
+            Position = position;
+        }
         #endregion
 
         #region Worker

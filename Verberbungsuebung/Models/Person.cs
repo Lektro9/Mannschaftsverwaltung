@@ -36,6 +36,12 @@ namespace Verberbungsuebung.Models
         }
 
         //Spezialkonstruktor
+        public Person(string Name, int Alter)
+        {
+            this.Name = Name;
+            this.Alter = Alter;
+            this.Rolle = null;
+        }
         public Person(string Name, int Alter, string Rolle)
         {
             this.Name = Name;

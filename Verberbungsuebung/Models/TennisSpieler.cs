@@ -18,6 +18,8 @@ namespace Verberbungsuebung.Models
         #region Eigenschaften
         string _schlaeger; //welcher Schläger nutzt der Tennisspieler?
         int _aufschlaggeschwindigkeit; //Durchschnittl. Aufschlaggeschw. in km/h
+
+        
         #endregion
 
         #region Accessoren/Modifier
@@ -26,7 +28,17 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
-
+        public TennisSpieler() : base()
+        {
+            Schlaeger = null;
+            Aufschlaggeschwindigkeit = -1;
+        }
+        //Spezialkonstruktor
+        public TennisSpieler(string name, int alter, int erzieltePkte, string schlaeger, int aufschlaggeschwindigkeit) : base(name, alter, erzieltePkte)
+        {
+            Schlaeger = schlaeger;
+            Aufschlaggeschwindigkeit = aufschlaggeschwindigkeit;
+        }
         #endregion
 
         #region Worker

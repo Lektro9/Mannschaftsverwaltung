@@ -26,7 +26,17 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
-
+        public Verein()
+        {
+            Name = null;
+            Sportart = null;
+        }
+        //Spezialkonstruktor
+        public Verein(string name, string sportart)
+        {
+            Name = name;
+            Sportart = sportart;
+        }
         #endregion
 
         #region Worker

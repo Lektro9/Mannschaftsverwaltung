@@ -23,7 +23,15 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
-
+        public Physiotherapeut()
+        {
+            Anerkennungen = null;
+        }
+        //Spezialkonstruktor
+        public Physiotherapeut(List<string> anerkennungen)
+        {
+            Anerkennungen = anerkennungen;
+        }
         #endregion
 
         #region Worker

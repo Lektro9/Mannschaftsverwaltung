@@ -16,6 +16,8 @@ namespace Verberbungsuebung.Models
     {
         #region Eigenschaften
         int _erzieltePkte; //in einem Jahr
+
+        
         #endregion
 
         #region Accessoren/Modifier
@@ -23,7 +25,19 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
-
+        public Spieler() : base()
+        {
+            ErzieltePkte = -1;
+        }
+        //Spezialkonstruktor
+        public Spieler(int erzieltePkte) : base()
+        {
+            ErzieltePkte = erzieltePkte;
+        }
+        public Spieler(string name, int alter, int erzieltePkte) : base(name, alter)
+        {
+            ErzieltePkte = erzieltePkte;
+        }
         #endregion
 
         #region Worker

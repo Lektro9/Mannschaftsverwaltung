@@ -26,6 +26,24 @@ namespace Verberbungsuebung.Models
         #endregion
 
         #region Konstruktoren
+        public FussballSpieler() : base()
+        {
+            Position = null;
+            geschosseneTore = -1;
+        }
+        //Spezialkonstruktor
+        public FussballSpieler(string position, int geschosseneTore) : base()
+        {
+            Position = position;
+            GeschosseneTore = geschosseneTore;
+        }
+
+        public FussballSpieler(string name, int alter, int erzieltePkte, string position, int geschosseneTore) : base(name, alter, erzieltePkte)
+        {
+            Position = position;
+            GeschosseneTore = geschosseneTore;
+        }
+
 
         #endregion
 
