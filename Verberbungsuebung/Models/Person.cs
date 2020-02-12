@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Verberbungsuebung
 {
-    class Person
+    public class Person
     {
         #region Eigenschaften
         string _name;
