@@ -16,6 +16,7 @@ namespace Verberbungsuebung
     {
         static void Main(string[] args)
         {
+            Mannschaft m1 = new Mannschaft();
         }
     }
 }

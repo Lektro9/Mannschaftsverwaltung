@@ -44,7 +44,7 @@ namespace Verberbungsuebung
             Status = status;
         }
         //Kopierkonstruktor
-        public Turnier(Turnier t) : base(t.Status, t.ID)
+        public Turnier(Turnier t)
         {
             this.ID = t.ID;
             this.Status = t.Status;
