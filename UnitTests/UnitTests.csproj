@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Verberbungsuebung\Verberbungsuebung.csproj">
+    <ProjectReference Include="..\Verberbungsuebung\Mannschaftsverwaltung.csproj">
       <Project>{9797c84e-4e93-4166-acb3-dab57d7dcebc}</Project>
-      <Name>Verberbungsuebung</Name>
+      <Name>Mannschaftsverwaltung</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
