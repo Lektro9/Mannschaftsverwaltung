@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class Trainer : Person
+    public class Trainer : Person
     {
         #region Eigenschaften
         int _erfahrung; //in Jahren
@@ -31,6 +31,15 @@ namespace Mannschaftsverwaltung
         public Trainer(int erfahrung) : base()
         {
             Erfahrung = erfahrung;
+        }
+        public Trainer(string name, int alter) : base(name, alter)
+        {
+            Erfahrung = -1;
+        }
+        //Kopierkonstruktor
+        public Trainer(Trainer t) : base(t)
+        {
+            Erfahrung = t.Erfahrung;
         }
         #endregion
 

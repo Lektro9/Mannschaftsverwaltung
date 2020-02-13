@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9797C84E-4E93-4166-ACB3-DAB57D7DCEBC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Verberbungsuebung</RootNamespace>
-    <AssemblyName>Verberbungsuebung</AssemblyName>
+    <RootNamespace>Mannschaftsverwaltung</RootNamespace>
+    <AssemblyName>Mannschaftsverwaltung</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

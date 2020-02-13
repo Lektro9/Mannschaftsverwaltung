@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class FussballSpieler : Spieler
+    public class FussballSpieler : Spieler
     {
         #region Eigenschaften
         string _position;
@@ -44,6 +44,17 @@ namespace Mannschaftsverwaltung
             GeschosseneTore = geschosseneTore;
         }
 
+        public FussballSpieler (int alter, string name) : base(name, alter)
+        {
+            Position = null;
+            geschosseneTore = -1;
+        }
+        //Kopierkonstruktor
+        public FussballSpieler(FussballSpieler f) : base(f)
+        {
+            Position = f.Position;
+            geschosseneTore = f.geschosseneTore;
+        }
 
         #endregion
 

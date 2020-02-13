@@ -37,6 +37,12 @@ namespace Mannschaftsverwaltung
         {
             Position = position;
         }
+
+        //Kopierkonstruktor
+        public HandballSpieler(HandballSpieler h) : base()
+        {
+            Position = h.Position;
+        }
         #endregion
 
         #region Worker

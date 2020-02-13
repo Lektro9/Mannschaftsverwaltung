@@ -48,6 +48,13 @@ namespace Mannschaftsverwaltung
             this.Alter = Alter;
             this.Rolle = Rolle;
         }
+        //Kopierkonstruktor
+        public Person(Person p)
+        {
+            this.Name = p.Name;
+            this.Alter = p.Alter;
+            this.Rolle = p.Rolle;
+        }
         #endregion
 
         #region Worker

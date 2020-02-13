@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class Physiotherapeut : Person
+    public class Physiotherapeut : Person
     {
         #region Eigenschaften
         List<string> _anerkennungen; //Ärztliche Annerkennungen, Erfolge, etc.
@@ -23,14 +23,24 @@ namespace Mannschaftsverwaltung
         #endregion
 
         #region Konstruktoren
-        public Physiotherapeut()
+        public Physiotherapeut() : base()
         {
             Anerkennungen = null;
         }
         //Spezialkonstruktor
-        public Physiotherapeut(List<string> anerkennungen)
+        public Physiotherapeut(List<string> anerkennungen) : base()
         {
             Anerkennungen = anerkennungen;
+        }
+
+        public Physiotherapeut(string name, int alter) : base(name, alter)
+        {
+            Anerkennungen = null;
+        }
+        //Kopierkonstruktor
+        public Physiotherapeut(Physiotherapeut p) : base(p)
+        {
+            Anerkennungen = p.Anerkennungen;
         }
         #endregion
 

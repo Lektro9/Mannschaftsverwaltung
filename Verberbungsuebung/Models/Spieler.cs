@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class Spieler : Person
+    public class Spieler : Person
     {
         #region Eigenschaften
         int _erzieltePkte; //in einem Jahr
@@ -37,6 +37,15 @@ namespace Mannschaftsverwaltung
         public Spieler(string name, int alter, int erzieltePkte) : base(name, alter)
         {
             ErzieltePkte = erzieltePkte;
+        }
+        public Spieler(string name, int alter) : base(name, alter)
+        {
+            ErzieltePkte = -1;
+        }
+        //Kopierkonstruktor
+        public Spieler(Spieler s) : base(s)
+        {
+            ErzieltePkte = s.ErzieltePkte;
         }
         #endregion
 

@@ -13,18 +13,20 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class Mannschaft
+    public class Mannschaft
     {
         #region Eigenschaften
         Verein _verein;
         string _sportart;
-        List<Spieler> _spieler;
+        List<Person> _personen;
+        int _anzahlSpieler;
         #endregion
 
         #region Accessoren/Modifier
         public string Sportart { get => _sportart; set => _sportart = value; }
-        internal Verein Verein { get => _verein; set => _verein = value; }
-        internal List<Spieler> Spieler { get => _spieler; set => _spieler = value; }
+        public Verein Verein { get => _verein; set => _verein = value; }
+        public List<Person> Personen { get => _personen; set => _personen = value; }
+        public int AnzahlSpieler { get => _anzahlSpieler; set => _anzahlSpieler = value; }
         #endregion
 
         #region Konstruktoren
@@ -32,21 +34,54 @@ namespace Mannschaftsverwaltung
         {
             Sportart = null;
             Verein = null;
-            Spieler = null;
+            Personen = null;
+            AnzahlSpieler = 0;
         }
         //Spezialkonstruktor
-        public Mannschaft(string sportart, Verein verein, List<Spieler> spieler)
+        public Mannschaft(string sportart, Verein verein, List<Person> personen)
         {
             Sportart = sportart;
             Verein = verein;
-            Spieler = spieler;
+            Personen = personen;
+            pruefeListeAufSpieler();
+        }
+        public Mannschaft(List<Person> personen) : this()
+        {
+            Personen = personen;
+            pruefeListeAufSpieler();
         }
         #endregion
 
         #region Worker
-        public void fuegeSpielerHinzu(Spieler s)
+        public void fuegePersonHinzu(Person p)
         {
-            this.Spieler.Add(s);
+            this.Personen.Add(p);
+        }
+
+        public void pruefeListeAufSpieler()
+        {
+            for (int i = 0; i < Personen.Count; i++)
+            {
+                if (Personen[i] is Spieler)
+                {
+                    AnzahlSpieler++;
+                }
+            }
+        }
+        public string gebeSpielerAus()
+        {
+            string retVal = "";
+            if (Personen != null)
+            {
+                for (int i = 0; i < Personen.Count; i++)
+                {
+                    if (Personen[i] is Spieler)
+                    {
+                        retVal += Personen[i].Name + "\n";
+                    }
+                }
+            }
+            return retVal;
         }
         #endregion
 

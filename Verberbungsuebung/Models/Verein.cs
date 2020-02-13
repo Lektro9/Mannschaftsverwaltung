@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class Verein
+    public class Verein
     {
         #region Eigenschaften
         string _name;
