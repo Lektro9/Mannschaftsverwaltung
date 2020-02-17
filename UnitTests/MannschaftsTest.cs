@@ -1,20 +1,14 @@
-﻿//Autor:        Kroll
-//Datum:        06.02.2020
-//Dateiname:    main.cs
-//Beschreibung: Hauptausführung
-//Änderungen:
-
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Mannschaftsverwaltung;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Mannschaftsverwaltung
+namespace UnitTests
 {
-    class main
+    [TestClass]
+    public class MannschaftsTest
     {
-        static void Main(string[] args)
+        [TestMethod]
+        public void SpielerHinzufuegen()
         {
             FussballSpieler p1 = new FussballSpieler(15, "Klaus");
             FussballSpieler p2 = new FussballSpieler(22, "Dennis");
@@ -25,12 +19,12 @@ namespace Mannschaftsverwaltung
             Physiotherapeut p7 = new Physiotherapeut(45, "Dr. Bob");
             Trainer t1 = new Trainer(74, "Franz Beckenbauer");
 
-            List<Person> pl = new List<Person>() { p1, p2, p3, p4, p5, p6, p7, t1 };
+            List<Person> pl = new List<Person>() { p1, p2, p3, p4, p5, p6, p7 };
 
             Mannschaft m = new Mannschaft(pl);
+            m.fuegePersonHinzu(t1);
 
-            Console.WriteLine(m.gebeSpielerAus());
-            Console.ReadKey();
+            Assert.AreEqual(6, m.AnzahlSpieler);
         }
     }
 }

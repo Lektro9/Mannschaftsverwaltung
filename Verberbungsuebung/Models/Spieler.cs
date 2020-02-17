@@ -42,6 +42,10 @@ namespace Mannschaftsverwaltung
         {
             ErzieltePkte = -1;
         }
+        public Spieler(int alter, string name) : base(alter, name)
+        {
+            ErzieltePkte = -1;
+        }
         //Kopierkonstruktor
         public Spieler(Spieler s) : base(s)
         {

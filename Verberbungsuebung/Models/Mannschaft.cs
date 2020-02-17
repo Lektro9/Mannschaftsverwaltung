@@ -56,10 +56,12 @@ namespace Mannschaftsverwaltung
         public void fuegePersonHinzu(Person p)
         {
             this.Personen.Add(p);
+            pruefeListeAufSpieler();
         }
 
-        public void pruefeListeAufSpieler()
+        private void pruefeListeAufSpieler()
         {
+            AnzahlSpieler = 0;
             for (int i = 0; i < Personen.Count; i++)
             {
                 if (Personen[i] is Spieler)

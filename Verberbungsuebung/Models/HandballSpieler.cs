@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class HandballSpieler : Spieler
+    public class HandballSpieler : Spieler
     {
         #region Eigenschaften
         string _position;
@@ -36,6 +36,11 @@ namespace Mannschaftsverwaltung
         public HandballSpieler(string name, int alter, int erzieltePkte, string position) : base(name, alter, erzieltePkte)
         {
             Position = position;
+        }
+
+        public HandballSpieler(int alter, string name) : base(alter, name)
+        {
+            Position = null;
         }
 
         //Kopierkonstruktor
