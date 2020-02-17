@@ -58,7 +58,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Verberbungsuebung\Mannschaftsverwaltung.csproj">
+    <ProjectReference Include="..\Mannschaftsverwaltung\Mannschaftsverwaltung.csproj">
       <Project>{9797c84e-4e93-4166-acb3-dab57d7dcebc}</Project>
       <Name>Mannschaftsverwaltung</Name>
     </ProjectReference>

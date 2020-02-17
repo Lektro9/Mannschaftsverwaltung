@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mannschaftsverwaltung", "Verberbungsuebung\Mannschaftsverwaltung.csproj", "{9797C84E-4E93-4166-ACB3-DAB57D7DCEBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mannschaftsverwaltung", "Mannschaftsverwaltung\Mannschaftsverwaltung.csproj", "{9797C84E-4E93-4166-ACB3-DAB57D7DCEBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{4E5F0007-C79E-4CAA-B627-CE6B69772798}"
 EndProject
