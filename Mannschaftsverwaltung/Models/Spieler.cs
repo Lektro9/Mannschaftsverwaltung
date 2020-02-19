@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    public class Spieler : Person
+    public abstract class Spieler : Person
     {
         #region Eigenschaften
         int _erzieltePkte; //in einem Jahr
@@ -59,6 +59,8 @@ namespace Mannschaftsverwaltung
             string retVal = this.Name + " " + this.Alter + " " + this.ErzieltePkte;
             return retVal;
         }
+
+        public abstract void spielen();
         #endregion
 
         #region Schnittstellen
