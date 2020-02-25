@@ -64,6 +64,11 @@ namespace Mannschaftsverwaltung
             string retVal = this.Name + " hat in diesem Turnier " + this.geschosseneTore + " Tore erzielt von der Position " + this.Position;
             return retVal;
         }
+        public override string spielen()
+        {
+            string retVal = "Der Fussballer spielt.";
+            return retVal;
+        }
         #endregion
 
         #region Schnittstellen

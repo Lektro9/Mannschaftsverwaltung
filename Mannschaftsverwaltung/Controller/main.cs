@@ -16,7 +16,7 @@ namespace Mannschaftsverwaltung
     {
         static void Main(string[] args)
         {
-            FussballSpieler p1 = new FussballSpieler(15, "Klaus");
+            FussballSpieler p1 = new FussballSpieler("Klaus", 15, 23, "Stürmer", 23);
             FussballSpieler p2 = new FussballSpieler(22, "Dennis");
             HandballSpieler p3 = new HandballSpieler(23, "Bernd");
             FussballSpieler p4 = new FussballSpieler(45, "Vergil");
@@ -29,7 +29,15 @@ namespace Mannschaftsverwaltung
 
             Mannschaft m = new Mannschaft(pl);
 
-            Console.WriteLine(m.gebeSpielerAus());
+            //Frühe Bindung
+            string message = ((FussballSpieler) m.Personen[0]).gebePositionsStatistik();
+
+            Console.WriteLine(message);
+
+            //Späte Bindung
+            message = ((Spieler)m.Personen[2]).spielen();
+
+            Console.WriteLine(message);
             Console.ReadKey();
         }
     }

@@ -57,6 +57,11 @@ namespace Mannschaftsverwaltung
             Position = p;
             return retVal;
         }
+        public override string spielen()
+        {
+            string retVal = "Der Handballer spielt.";
+            return retVal;
+        }
         #endregion
 
         #region Schnittstellen

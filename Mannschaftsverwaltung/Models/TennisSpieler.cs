@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    class TennisSpieler : Spieler
+    public class TennisSpieler : Spieler
     {
         #region Eigenschaften
         string _schlaeger; //welcher Schläger nutzt der Tennisspieler?
         int _aufschlaggeschwindigkeit; //Durchschnittl. Aufschlaggeschw. in km/h
 
-        
+
         #endregion
 
         #region Accessoren/Modifier
@@ -46,6 +46,11 @@ namespace Mannschaftsverwaltung
         {
             string retVal = this.Schlaeger;
             this.Schlaeger = s;
+            return retVal;
+        }
+        public override string spielen()
+        {
+            string retVal = "Der Tennisspieler spielt.";
             return retVal;
         }
         #endregion

@@ -60,7 +60,7 @@ namespace Mannschaftsverwaltung
             return retVal;
         }
 
-        public abstract void spielen();
+        public abstract string spielen();
         #endregion
 
         #region Schnittstellen
