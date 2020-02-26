@@ -16,26 +16,31 @@ namespace Mannschaftsverwaltung
     {
         #region Eigenschaften
         string _position;
+        int _geworfeneTore;
         #endregion
 
         #region Accessoren/Modifier
         public string Position { get => _position; set => _position = value; }
+        public int GeworfeneTore { get => _geworfeneTore; set => _geworfeneTore = value; }
         #endregion
 
         #region Konstruktoren
         public HandballSpieler() : base()
         {
             Position = null;
+            GeworfeneTore = -1;
         }
         //Spezialkonstruktor
         public HandballSpieler(string position) : base()
         {
             Position = position;
+            GeworfeneTore = -1;
         }
 
-        public HandballSpieler(string name, int alter, int erzieltePkte, string position) : base(name, alter, erzieltePkte)
+        public HandballSpieler(string name, int alter, int erzieltePkte, string position, int geworfeneTore) : base(name, alter, erzieltePkte)
         {
             Position = position;
+            GeworfeneTore = geworfeneTore;
         }
 
         public HandballSpieler(int alter, string name) : base(alter, name)
@@ -60,6 +65,25 @@ namespace Mannschaftsverwaltung
         public override string spielen()
         {
             string retVal = "Der Handballer spielt.";
+            return retVal;
+        }
+
+        public override int compareByErfolg(Spieler s)
+        {
+            HandballSpieler h = (HandballSpieler)s;
+            int retVal;
+            if (GeworfeneTore > h.GeworfeneTore)
+            {
+                retVal = 1;
+            }
+            else if (GeworfeneTore == h.GeworfeneTore)
+            {
+                retVal = 0;
+            }
+            else
+            {
+                retVal = 1;
+            }
             return retVal;
         }
         #endregion

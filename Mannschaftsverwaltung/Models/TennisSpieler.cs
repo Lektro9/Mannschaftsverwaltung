@@ -18,6 +18,7 @@ namespace Mannschaftsverwaltung
         #region Eigenschaften
         string _schlaeger; //welcher Schläger nutzt der Tennisspieler?
         int _aufschlaggeschwindigkeit; //Durchschnittl. Aufschlaggeschw. in km/h
+        int _gewonneneSpiele;
 
 
         #endregion
@@ -25,6 +26,7 @@ namespace Mannschaftsverwaltung
         #region Accessoren/Modifier
         public string Schlaeger { get => _schlaeger; set => _schlaeger = value; }
         public int Aufschlaggeschwindigkeit { get => _aufschlaggeschwindigkeit; set => _aufschlaggeschwindigkeit = value; }
+        public int GewonneneSpiele { get => _gewonneneSpiele; set => _gewonneneSpiele = value; }
         #endregion
 
         #region Konstruktoren
@@ -32,12 +34,14 @@ namespace Mannschaftsverwaltung
         {
             Schlaeger = null;
             Aufschlaggeschwindigkeit = -1;
+            GewonneneSpiele = -1;
         }
         //Spezialkonstruktor
-        public TennisSpieler(string name, int alter, int erzieltePkte, string schlaeger, int aufschlaggeschwindigkeit) : base(name, alter, erzieltePkte)
+        public TennisSpieler(string name, int alter, int erzieltePkte, string schlaeger, int aufschlaggeschwindigkeit, int gewonneneSpiele) : base(name, alter, erzieltePkte)
         {
             Schlaeger = schlaeger;
             Aufschlaggeschwindigkeit = aufschlaggeschwindigkeit;
+            gewonneneSpiele = GewonneneSpiele;
         }
         #endregion
 
@@ -51,6 +55,25 @@ namespace Mannschaftsverwaltung
         public override string spielen()
         {
             string retVal = "Der Tennisspieler spielt.";
+            return retVal;
+        }
+
+        public override int compareByErfolg(Spieler s)
+        {
+            TennisSpieler t = (TennisSpieler)s;
+            int retVal;
+            if (GewonneneSpiele > t.GewonneneSpiele)
+            {
+                retVal = 1;
+            }
+            else if (GewonneneSpiele == t.GewonneneSpiele)
+            {
+                retVal = 0;
+            }
+            else
+            {
+                retVal = 1;
+            }
             return retVal;
         }
         #endregion

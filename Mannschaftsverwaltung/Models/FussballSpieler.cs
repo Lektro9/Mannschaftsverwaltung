@@ -69,6 +69,25 @@ namespace Mannschaftsverwaltung
             string retVal = "Der Fussballer spielt.";
             return retVal;
         }
+
+        public override int compareByErfolg(Spieler s)
+        {
+            FussballSpieler f = (FussballSpieler)s;
+            int retVal;
+            if (GeschosseneTore > f.GeschosseneTore)
+            {
+                retVal = 1;
+            }
+            else if (GeschosseneTore == f.GeschosseneTore)
+            {
+                retVal = 0;
+            }
+            else
+            {
+                retVal = 1;
+            }
+            return retVal;
+        }
         #endregion
 
         #region Schnittstellen

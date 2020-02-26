@@ -61,6 +61,8 @@ namespace Mannschaftsverwaltung
         }
 
         public abstract string spielen();
+
+        public abstract int compareByErfolg(Spieler s);
         #endregion
 
         #region Schnittstellen
