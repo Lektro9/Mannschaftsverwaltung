@@ -37,7 +37,7 @@ namespace Mannschaftsverwaltung
             GewonneneSpiele = -1;
         }
         //Spezialkonstruktor
-        public TennisSpieler(string name, int alter, int erzieltePkte, string schlaeger, int aufschlaggeschwindigkeit, int gewonneneSpiele) : base(name, alter, erzieltePkte)
+        public TennisSpieler(string name, int alter, string schlaeger, int aufschlaggeschwindigkeit, int gewonneneSpiele) : base(name, alter)
         {
             Schlaeger = schlaeger;
             Aufschlaggeschwindigkeit = aufschlaggeschwindigkeit;

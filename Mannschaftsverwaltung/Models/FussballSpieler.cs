@@ -38,7 +38,7 @@ namespace Mannschaftsverwaltung
             GeschosseneTore = geschosseneTore;
         }
 
-        public FussballSpieler(string name, int alter, int erzieltePkte, string position, int geschosseneTore) : base(name, alter, erzieltePkte)
+        public FussballSpieler(string name, int alter, string position, int geschosseneTore) : base(name, alter)
         {
             Position = position;
             GeschosseneTore = geschosseneTore;
@@ -84,7 +84,7 @@ namespace Mannschaftsverwaltung
             }
             else
             {
-                retVal = 1;
+                retVal = -1;
             }
             return retVal;
         }

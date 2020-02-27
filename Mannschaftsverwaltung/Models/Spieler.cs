@@ -15,50 +15,82 @@ namespace Mannschaftsverwaltung
     public abstract class Spieler : Person
     {
         #region Eigenschaften
-        int _erzieltePkte; //in einem Jahr
+        string _sportArt;
 
         
         #endregion
 
         #region Accessoren/Modifier
-        public int ErzieltePkte { get => _erzieltePkte; set => _erzieltePkte = value; }
+        public string SportArt { get => _sportArt; set => _sportArt = value; }
         #endregion
 
         #region Konstruktoren
         public Spieler() : base()
         {
-            ErzieltePkte = -1;
+            if (this is FussballSpieler)
+            {
+                SportArt = "FusballSpieler";
+            }
+            else if (this is HandballSpieler)
+            {
+                SportArt = "HandballSpieler";
+            }
+            else if (this is TennisSpieler)
+            {
+                SportArt = "TennisSpieler";
+            }
+            else
+            {
+                SportArt = null;
+            }
         }
         //Spezialkonstruktor
-        public Spieler(int erzieltePkte) : base()
-        {
-            ErzieltePkte = erzieltePkte;
-        }
-        public Spieler(string name, int alter, int erzieltePkte) : base(name, alter)
-        {
-            ErzieltePkte = erzieltePkte;
-        }
         public Spieler(string name, int alter) : base(name, alter)
         {
-            ErzieltePkte = -1;
+            if (this is FussballSpieler)
+            {
+                SportArt = "FusballSpieler";
+            }
+            else if (this is HandballSpieler)
+            {
+                SportArt = "HandballSpieler";
+            }
+            else if (this is TennisSpieler)
+            {
+                SportArt = "TennisSpieler";
+            }
+            else
+            {
+                SportArt = null;
+            }
         }
         public Spieler(int alter, string name) : base(alter, name)
         {
-            ErzieltePkte = -1;
+            if (this is FussballSpieler)
+            {
+                SportArt = "FusballSpieler";
+            }
+            else if (this is HandballSpieler)
+            {
+                SportArt = "HandballSpieler";
+            }
+            else if (this is TennisSpieler)
+            {
+                SportArt = "TennisSpieler";
+            }
+            else
+            {
+                SportArt = null;
+            }
         }
         //Kopierkonstruktor
         public Spieler(Spieler s) : base(s)
         {
-            ErzieltePkte = s.ErzieltePkte;
+            SportArt = s.SportArt;
         }
         #endregion
 
         #region Worker
-        public string zeigeSpielerProfil()
-        {
-            string retVal = this.Name + " " + this.Alter + " " + this.ErzieltePkte;
-            return retVal;
-        }
 
         public abstract string spielen();
 

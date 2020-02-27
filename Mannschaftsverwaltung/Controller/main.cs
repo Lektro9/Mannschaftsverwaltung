@@ -16,29 +16,37 @@ namespace Mannschaftsverwaltung
     {
         static void Main(string[] args)
         {
-            FussballSpieler p1 = new FussballSpieler("Klaus", 15, 23, "Stürmer", 23);
-            FussballSpieler p2 = new FussballSpieler(22, "Dennis");
-            HandballSpieler p3 = new HandballSpieler(23, "Bernd");
-            FussballSpieler p4 = new FussballSpieler(45, "Vergil");
-            FussballSpieler p5 = new FussballSpieler(43, "Dante");
-            FussballSpieler p6 = new FussballSpieler(85, "Goku");
-            Physiotherapeut p7 = new Physiotherapeut(45, "Dr. Bob");
-            Trainer t1 = new Trainer(74, "Franz Beckenbauer");
+            FussballSpieler p1 = new FussballSpieler("Klaus", 15, "Stürmer", 23);
+            FussballSpieler p2 = new FussballSpieler("Dennis", 15, "Stürmer", 25);
+            FussballSpieler p4 = new FussballSpieler("Vergil", 15, "Stürmer", 857);
+            FussballSpieler p5 = new FussballSpieler("Dante", 15, "Stürmer", 900);
+            FussballSpieler p6 = new FussballSpieler("Goku", 15, "Stürmer", 1010);
 
-            List<Person> pl = new List<Person>() { p1, p2, p3, p4, p5, p6, p7, t1 };
+            List<Person> pl = new List<Person>() { p1, p2, p4, p5, p6, };
 
             Mannschaft m = new Mannschaft(pl);
 
             //Frühe Bindung
-            string message = ((FussballSpieler) m.Personen[0]).gebePositionsStatistik();
+            //string message = ((FussballSpieler) m.Personen[0]).gebePositionsStatistik();
 
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
 
             //Späte Bindung
-            message = ((Spieler)m.Personen[2]).spielen();
+            //message = ((Spieler)m.Personen[2]).spielen();
 
-            Console.WriteLine(message);
+            //Console.WriteLine(message);
+            //Console.ReadKey();
+            gebeSortierteListeAus(m.sortiere());
             Console.ReadKey();
+        }
+        public static void gebeSortierteListeAus(List<Person> sortierteListe)
+        {
+            Console.WriteLine("\tName \t\tSportArt \t\tPunkte");
+            Console.WriteLine();
+            for (int i = 0; i < sortierteListe.Count; i++)
+            {
+                Console.WriteLine("\t" + sortierteListe[i].Name + "\t\t" + ((Spieler)sortierteListe[i]).SportArt + "\t\t" + ((FussballSpieler)sortierteListe[i]).GeschosseneTore);
+            }
         }
     }
 }
