@@ -88,6 +88,23 @@ namespace Mannschaftsverwaltung
             }
             return retVal;
         }
+        public override int compareByName(Spieler s)
+        {
+            int retVal;
+            if (Name[0] > s.Name[0])
+            {
+                retVal = 1;
+            }
+            else if (Name[0] == s.Name[0])
+            {
+                retVal = 0;
+            }
+            else
+            {
+                retVal = -1;
+            }
+            return retVal;
+        }
         #endregion
 
         #region Schnittstellen

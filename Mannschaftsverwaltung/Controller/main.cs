@@ -22,9 +22,16 @@ namespace Mannschaftsverwaltung
             FussballSpieler p5 = new FussballSpieler("Dante", 15, "Stürmer", 900);
             FussballSpieler p6 = new FussballSpieler("Goku", 15, "Stürmer", 1010);
 
-            List<Person> pl = new List<Person>() { p1, p2, p4, p5, p6, };
+            HandballSpieler h1 = new HandballSpieler("Bernd", 12, "Verteidiger", 3);
+            HandballSpieler h3 = new HandballSpieler("Harry", 15, "Stürmer", 25);
+            HandballSpieler h2 = new HandballSpieler("Henry", 15, "Stürmer", 16);
+            HandballSpieler h4 = new HandballSpieler("Holly", 15, "Mittelfeld", 17);
 
-            Mannschaft m = new Mannschaft(pl);
+            List<Person> pl1 = new List<Person>() { p1, p2, p4, p5, p6, };
+            List<Person> pl2 = new List<Person>() { h1, h2, h3, h4, };
+
+            Mannschaft m = new Mannschaft(pl1);
+            Mannschaft m2 = new Mannschaft(pl2);
 
             //Frühe Bindung
             //string message = ((FussballSpieler) m.Personen[0]).gebePositionsStatistik();
@@ -36,16 +43,26 @@ namespace Mannschaftsverwaltung
 
             //Console.WriteLine(message);
             //Console.ReadKey();
+            m.SortBy = 2;
             gebeSortierteListeAus(m.sortiere());
+            m2.SortBy = 2;
+            gebeSortierteListeAus(m2.sortiere());
             Console.ReadKey();
         }
         public static void gebeSortierteListeAus(List<Person> sortierteListe)
         {
-            Console.WriteLine("\tName \t\tSportArt \t\tPunkte");
+            Console.WriteLine("\n\tName \t\tSportArt \t\tPunkte");
             Console.WriteLine();
             for (int i = 0; i < sortierteListe.Count; i++)
             {
-                Console.WriteLine("\t" + sortierteListe[i].Name + "\t\t" + ((Spieler)sortierteListe[i]).SportArt + "\t\t" + ((FussballSpieler)sortierteListe[i]).GeschosseneTore);
+                if (sortierteListe[i].GetType() == typeof(FussballSpieler))
+                {
+                    Console.WriteLine("\t" + sortierteListe[i].Name + "\t\t" + ((Spieler)sortierteListe[i]).SportArt + "\t\t" + ((FussballSpieler)sortierteListe[i]).GeschosseneTore);
+                }
+                else if (sortierteListe[i].GetType() == typeof(HandballSpieler))
+                {
+                    Console.WriteLine("\t" + sortierteListe[i].Name + "\t\t" + ((Spieler)sortierteListe[i]).SportArt + "\t\t" + ((HandballSpieler)sortierteListe[i]).GeworfeneTore);
+                }
             }
         }
     }

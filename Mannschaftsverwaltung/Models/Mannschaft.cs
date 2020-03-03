@@ -98,12 +98,79 @@ namespace Mannschaftsverwaltung
                 fertig = true;
                 for (int i = 0; i < retVal.Count - 1; i++)
                 {
-                    if (((FussballSpieler)retVal[i]).compareByErfolg((FussballSpieler)retVal[i + 1]) < 0)
+                    if (retVal[i].GetType() == typeof(FussballSpieler) && retVal[i + 1].GetType() == typeof(FussballSpieler))
                     {
-                        Person temp = retVal[i];
-                        retVal[i] = retVal[i + 1];
-                        retVal[i + 1] = temp;
-                        fertig = false;
+                        if (((FussballSpieler)retVal[i]).compareByErfolg((FussballSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
+                    }
+                    else if (retVal[i].GetType() == typeof(HandballSpieler) && retVal[i + 1].GetType() == typeof(HandballSpieler))
+                    {
+                        if (((HandballSpieler)retVal[i]).compareByErfolg((HandballSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
+                    }
+                    else if (retVal[i].GetType() == typeof(TennisSpieler) && retVal[i + 1].GetType() == typeof(TennisSpieler))
+                    {
+                        if (((TennisSpieler)retVal[i]).compareByErfolg((TennisSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
+                    }
+                }
+            }
+            return retVal;
+        }
+
+        private List<Person> sortiereNachName(List<Person> unsortierteListe)
+        {
+            List<Person> retVal = unsortierteListe;
+            bool fertig = false;
+            while (fertig == false)
+            {
+                fertig = true;
+                for (int i = 0; i < retVal.Count - 1; i++)
+                {
+                    if (retVal[i].GetType() == typeof(FussballSpieler) && retVal[i + 1].GetType() == typeof(FussballSpieler))
+                    {
+                        if (((FussballSpieler)retVal[i]).compareByName((FussballSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
+                    }
+                    else if (retVal[i].GetType() == typeof(HandballSpieler) && retVal[i + 1].GetType() == typeof(HandballSpieler))
+                    {
+                        if (((HandballSpieler)retVal[i]).compareByName((HandballSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
+                    }
+                    else if (retVal[i].GetType() == typeof(TennisSpieler) && retVal[i + 1].GetType() == typeof(TennisSpieler))
+                    {
+                        if (((TennisSpieler)retVal[i]).compareByName((TennisSpieler)retVal[i + 1]) < 0)
+                        {
+                            Person temp = retVal[i];
+                            retVal[i] = retVal[i + 1];
+                            retVal[i + 1] = temp;
+                            fertig = false;
+                        }
                     }
                 }
             }
@@ -116,6 +183,10 @@ namespace Mannschaftsverwaltung
             if (SortBy == 1)
             {
                 sortiereNachErfolg(retVal);
+            }
+            else if (SortBy == 2)
+            {
+                sortiereNachName(retVal);
             }
             return retVal;
         }
