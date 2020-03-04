@@ -77,14 +77,14 @@ namespace Mannschaftsverwaltung
             return retVal;
         }
 
-        public override int compareByName(Spieler s)
+        public override int compareByName(Person p)
         {
             int retVal;
-            if (Name[0] > s.Name[0])
+            if (Name[0] > p.Name[0])
             {
                 retVal = 1;
             }
-            else if (Name[0] == s.Name[0])
+            else if (Name[0] == p.Name[0])
             {
                 retVal = 0;
             }

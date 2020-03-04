@@ -92,43 +92,40 @@ namespace Mannschaftsverwaltung
         private List<Person> sortiereNachErfolg(List<Person> unsortierteListe)
         {
             List<Person> retVal = unsortierteListe;
+            List<Person> nichtSpieler = new List<Person>();
+
+            //Alle Nichtspieler Typen entfernen
+            for (int i = 0; i < retVal.Count; i++)
+            {
+                if (retVal[i].GetType().IsSubclassOf(typeof(Spieler)) == false)
+                {
+                    Person temp = retVal[i];
+                    nichtSpieler.Add(retVal[i]);
+                    retVal.Remove(temp);
+                }
+            }
+
+            //Spieler sortieren
             bool fertig = false;
             while (fertig == false)
             {
                 fertig = true;
                 for (int i = 0; i < retVal.Count - 1; i++)
                 {
-                    if (retVal[i].GetType() == typeof(FussballSpieler) && retVal[i + 1].GetType() == typeof(FussballSpieler))
+                    if (((Spieler)retVal[i]).compareByErfolg((Spieler)retVal[i + 1]) < 0)
                     {
-                        if (((FussballSpieler)retVal[i]).compareByErfolg((FussballSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
-                    }
-                    else if (retVal[i].GetType() == typeof(HandballSpieler) && retVal[i + 1].GetType() == typeof(HandballSpieler))
-                    {
-                        if (((HandballSpieler)retVal[i]).compareByErfolg((HandballSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
-                    }
-                    else if (retVal[i].GetType() == typeof(TennisSpieler) && retVal[i + 1].GetType() == typeof(TennisSpieler))
-                    {
-                        if (((TennisSpieler)retVal[i]).compareByErfolg((TennisSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
+                        Person temp = retVal[i];
+                        retVal[i] = retVal[i + 1];
+                        retVal[i + 1] = temp;
+                        fertig = false;
                     }
                 }
+            }
+
+            //Nichtspieler wieder hinzufügen
+            for (int i = 0; i < nichtSpieler.Count; i++)
+            {
+                retVal.Add(nichtSpieler[i]);
             }
             return retVal;
         }
@@ -136,41 +133,20 @@ namespace Mannschaftsverwaltung
         private List<Person> sortiereNachName(List<Person> unsortierteListe)
         {
             List<Person> retVal = unsortierteListe;
+
+            //Alle nach Namen sortieren
             bool fertig = false;
             while (fertig == false)
             {
                 fertig = true;
                 for (int i = 0; i < retVal.Count - 1; i++)
                 {
-                    if (retVal[i].GetType() == typeof(FussballSpieler) && retVal[i + 1].GetType() == typeof(FussballSpieler))
+                    if (retVal[i].compareByName(retVal[i + 1]) < 0)
                     {
-                        if (((FussballSpieler)retVal[i]).compareByName((FussballSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
-                    }
-                    else if (retVal[i].GetType() == typeof(HandballSpieler) && retVal[i + 1].GetType() == typeof(HandballSpieler))
-                    {
-                        if (((HandballSpieler)retVal[i]).compareByName((HandballSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
-                    }
-                    else if (retVal[i].GetType() == typeof(TennisSpieler) && retVal[i + 1].GetType() == typeof(TennisSpieler))
-                    {
-                        if (((TennisSpieler)retVal[i]).compareByName((TennisSpieler)retVal[i + 1]) < 0)
-                        {
-                            Person temp = retVal[i];
-                            retVal[i] = retVal[i + 1];
-                            retVal[i + 1] = temp;
-                            fertig = false;
-                        }
+                        Person temp = retVal[i];
+                        retVal[i] = retVal[i + 1];
+                        retVal[i + 1] = temp;
+                        fertig = false;
                     }
                 }
             }

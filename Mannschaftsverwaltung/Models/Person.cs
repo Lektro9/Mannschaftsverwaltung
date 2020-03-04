@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Mannschaftsverwaltung
 {
-    public class Person
+    public abstract class Person
     {
         #region Eigenschaften
         string _name;
@@ -70,6 +70,7 @@ namespace Mannschaftsverwaltung
             this.Rolle = r;
             return retVal;
         }
+        public abstract int compareByName(Person p);
         #endregion
 
         #region Schnittstellen
