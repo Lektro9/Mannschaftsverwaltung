@@ -99,10 +99,13 @@ namespace Mannschaftsverwaltung
             {
                 if (retVal[i].GetType().IsSubclassOf(typeof(Spieler)) == false)
                 {
-                    Person temp = retVal[i];
                     nichtSpieler.Add(retVal[i]);
-                    retVal.Remove(temp);
                 }
+            }
+
+            for (int i = 0; i < nichtSpieler.Count; i++)
+            {
+                retVal.Remove(nichtSpieler[i]);
             }
 
             //Spieler sortieren

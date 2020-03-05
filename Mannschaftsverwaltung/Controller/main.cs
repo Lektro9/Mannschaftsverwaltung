@@ -44,7 +44,7 @@ namespace Mannschaftsverwaltung
 
             //Console.WriteLine(message);
             //Console.ReadKey();
-            m.SortBy = 2;
+            m.SortBy = 1;
             gebeSortierteListeAus(m.sortiere());
             m2.SortBy = 1;
             gebeSortierteListeAus(m2.sortiere());
@@ -52,6 +52,7 @@ namespace Mannschaftsverwaltung
         }
         public static void gebeSortierteListeAus(List<Person> sortierteListe)
         {
+            //TODO: gebe alle Typen mit Eigenschaften aus
             Console.WriteLine("\n\tName \t\tSportArt \t\tPunkte");
             Console.WriteLine();
             for (int i = 0; i < sortierteListe.Count; i++)
